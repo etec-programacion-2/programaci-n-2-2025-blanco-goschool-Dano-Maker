@@ -169,3 +169,10 @@ fun main() {
 
 // Función auxiliar para repetir strings
 operator fun String.times(n: Int): String = this.repeat(n)*
+
+**Viernes 29 de Agosto**
+* En el dia de hoy avance con la issue declarando las clases Alumno.kt y Evaluación.kt en cree una funcion para valdiar alumnos mediante id y una forma de recibir el promedio de las evaluaciones, independientemente de eso estoy viendo como asignar los alumnos dentro del codigo para que todos tengan las mismas evaluaciones pero diferentes notas segun el alumno. Claude me dio una idea de como hacerlo pero no me queda muy claro de hacerlo de esa maner o de otra
+
+charla con claude
+
+

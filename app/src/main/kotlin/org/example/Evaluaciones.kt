@@ -5,5 +5,9 @@ class Evaluaciones (val descripción: String, val calificación: Double) {
         }
     if (descripción.isEmpty()) {
         throw IllegalArgumentException("La descripción no puede estar vacía")
+    }    
+    }
+    override fun toString(): String {
+        return "$descripción: $calificación"
     }
 }
