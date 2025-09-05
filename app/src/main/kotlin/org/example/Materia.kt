@@ -1,5 +1,11 @@
-package org.example
+class Materia(val id: Int, val nombre: String) {
+    private val alumnosInscriptos = mutableListOf<Alumno>()
 
-class Materia { val id: Int, val nombre: String)
-        private val AlumnosInscritos=mutableListOf<Alumno>()
-    fun inscribirAlumno(alumn:Alumno)
+    fun inscribirAlumno(alumno: Alumno) {
+        alumnosInscriptos.add(alumno)
+    }
+
+    fun obtenerAlumnosInscriptos(): List<Alumno> {
+        return alumnosInscriptos.toList()
+    }
+}

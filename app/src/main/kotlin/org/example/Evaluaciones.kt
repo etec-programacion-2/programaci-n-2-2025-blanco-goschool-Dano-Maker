@@ -1,13 +1,14 @@
-class Evaluaciones(val descripción: String, val calificación: Double) {
+class Evaluaciones(val descripcion: String, val nota: Double) {
     init {
-        if (calificación < 0.0 || calificación > 10.0) {
-            throw IllegalArgumentException("La calificación debe estar entre 0.0 y 10.0")
+        if (nota < 0.0 || nota > 10.0) {
+            throw IllegalArgumentException("La nota debe estar entre 0.0 y 10.0")
         }
-        if (descripción.isEmpty()) {
+        if (descripcion.isBlank()) {
             throw IllegalArgumentException("La descripción no puede estar vacía")
         }
     }
+
     override fun toString(): String {
-        return "$descripción: $calificación"
+        return "$descripcion: $nota"
     }
 }
