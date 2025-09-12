@@ -8,4 +8,5 @@ class Materia(val id: Int, val nombre: String) {
     fun obtenerAlumnosInscriptos(): List<Alumno> {
         return alumnosInscriptos.toList()
     }
+
 }

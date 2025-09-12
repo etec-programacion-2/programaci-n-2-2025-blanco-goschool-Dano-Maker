@@ -175,4 +175,56 @@ operator fun String.times(n: Int): String = this.repeat(n)*
 
 charla con claude
 
+En el dia de hoy  tuve una charla con el profesor quintero y me dijo que la issue 3 tendria la funcion de verificar que las evaluaciones sean de materias que ya estan especificadas en el archivo materia
 
+un ejemplo podria ser:
+class Materia(val id: Int, val nombre: String) {
+private val alumnosInscriptos = mutableListOf<Alumno>()
+private val evaluacionesPorAlumno = mutableMapOf<Int, MutableList<Evaluaciones>>() // idAlumno -> evaluaciones
+fun inscribirAlumno(alumno: Alumno) {
+if (alumnosInscriptos.none { it.id == alumno.id }) {
+alumnosInscriptos.add(alumno)
+evaluacionesPorAlumno[alumno.id] = mutableListOf()
+}
+}
+fun obtenerAlumnosInscriptos(): List<Alumno> = alumnosInscriptos.toList()
+fun agregarEvaluacionAlumno(idAlumno: Int, evaluacion: Evaluaciones): Boolean {
+val evaluaciones = evaluacionesPorAlumno[idAlumno]
+return if (evaluaciones != null) {
+evaluaciones.add(evaluacion)
+true
+} else {
+false
+}
+}
+fun obtenerEvaluacionesAlumno(idAlumno: Int): List<Evaluaciones> =
+evaluacionesPorAlumno[idAlumno]?.toList() ?: emptyList()
+}
+
+class SistemaGestionEscolar {
+private val materias = mutableListOf<Materia>()
+private val alumnos = mutableListOf<Alumno>()
+private var siguienteIdMateria = 1
+private var siguienteIdAlumno = 1
+fun crearMateria(nombre: String): Materia {
+val materia = Materia(siguienteIdMateria++, nombre)
+materias.add(materia)
+println("Materia creada: ${materia.nombre} (ID: ${materia.id})")
+return materia
+}
+fun registrarAlumno(nombre: String, apellido: String): Alumno {
+val alumno = Alumno(nombre, apellido, siguienteIdAlumno++)
+alumnos.add(alumno)
+println("Alumno registrado: ${alumno.nombre} ${alumno.apellido} (ID: ${alumno.id})")
+return alumno
+}
+fun inscribirAlumnoEnMateria(idAlumno: Int, idMateria: Int): Boolean {
+val alumno = alumnos.find { it.id == idAlumno }
+val materia = materias.find { it.id == idMateria }
+return if (alumno != null && materia != null) {
+materia.inscribirAlumno(alumno)
+println("Alumno ${alumno.nombre} inscrito en materia ${materia.nombre}")
+true
+} else {
+println("Error: Alumno o Materia no encontrado")
+false
