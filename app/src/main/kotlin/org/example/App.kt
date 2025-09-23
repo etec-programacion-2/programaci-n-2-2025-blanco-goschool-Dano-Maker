@@ -5,21 +5,21 @@ package org.example
 import Alumno
 import Evaluaciones
 fun main() {
-    //Alumnos
-    val mati = Alumno("Matias", "Blanco", 1)
-    val cande = Alumno(nombre="Candela", apellido="Delacruz", id= 2)
-    val ivo = Alumno(nombre="Ivo", apellido="Giovarruscio", id= 3)
-    val maxi = Alumno(nombre="Maximo", apellido = "Aznar", id= 4)
-    val bruno= Alumno(nombre= "Bruno", apellido= "Levatino", id = 5)
-    //evaluaciones
+    val sistema = SistemaGestionEscolar()
+    
+    // Crear materias
+    val idMatematicas = sistema.crearMateria("Matemáticas")
+    val idHistoria = sistema.crearMateria("Historia")
+    
+    // Registrar alumnos
+    val idMati = sistema.registrarAlumno("Matias", "Blanco")
+    val idCande = sistema.registrarAlumno("Candela", "Delacruz")
+    
+    // Inscribir alumnos en materias
+    sistema.inscribirAlumnoEnMateria(idMati, idMatematicas)
+    sistema.inscribirAlumnoEnMateria(idCande, idMatematicas)
+    
+    // Cargar notas
     val eval = Evaluaciones("Trabajo Practico", 8.5)
-    //codigo
-    mati.agregarEvaluacion(eval)
-    mati.mostrarInformacion()
-    cande.mostrarInformacion()
-    ivo.mostrarInformacion()
-    maxi.mostrarInformacion()
-    bruno.mostrarInformacion()
-    println("\nEvaluación recién agregada:")
-    println(eval)
+    sistema.cargarNota(idMati, idMatematicas, eval)
 }
