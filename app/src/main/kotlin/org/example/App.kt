@@ -4,6 +4,7 @@
 package org.example
 import Alumno
 import Evaluaciones
+import SistemaGestionEscolar
 fun main() {
     val sistema = SistemaGestionEscolar()
     
