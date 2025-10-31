@@ -106,7 +106,3 @@ fun main(args: Array<String>) {
     // Lanzar la aplicación JavaFX
     Application.launch(App::class.java, *args)
 }
-
-
-
-//Hola profe, no se porque no me deja pushear, asique aca hay un commit para que me dejegi
