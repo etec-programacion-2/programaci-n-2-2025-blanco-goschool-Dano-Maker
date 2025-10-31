@@ -81,6 +81,7 @@ fun main(args: Array<String>) {
     val idHistoria = sistema.crearMateria("Historia")
     val idFisica = sistema.crearMateria("Física")
     val idTeleinformatica = sistema.crearMateria("Teleinformática")
+    val idProgramación = sistema.crearMateria("Programación II")
 
     // Registrar alumnos
     val idMati = sistema.registrarAlumno("Matias", "Blanco")
