@@ -81,6 +81,7 @@ fun main(args: Array<String>) {
     val idHistoria = sistema.crearMateria("Historia")
     val idFisica = sistema.crearMateria("Física")
     val idTeleinformatica = sistema.crearMateria("Teleinformática")
+    val idProgramación = sistema.crearMateria("Programación II")
 
     // Registrar alumnos
     val idMati = sistema.registrarAlumno("Matias", "Blanco")
@@ -108,4 +109,4 @@ fun main(args: Array<String>) {
 
 
 
-//Hola profe, no se porque no me deja pushear, asique aca hay un commit para que me deje
+//Hola profe, no se porque no me deja pushear, asique aca hay un commit para que me dejegi

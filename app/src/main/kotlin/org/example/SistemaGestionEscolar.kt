@@ -61,4 +61,21 @@ class SistemaGestionEscolar {
     private fun buscarMateriaPorId(id: Int): Materia? {
         return materias.find { it.id == id }
     }
+
+    // ✅ NUEVOS MÉTODOS PÚBLICOS
+    fun obtenerTodosLosAlumnos(): List<Alumno> {
+        return estudiantes.toList()
+    }
+
+    fun obtenerTodasLasMaterias(): List<Materia> {
+        return materias.toList()
+    }
+
+    fun obtenerAlumnoPorId(id: Int): Alumno? {
+        return buscarAlumnoPorId(id)
+    }
+
+    fun obtenerMateriaPorId(id: Int): Materia? {
+        return buscarMateriaPorId(id)
+    }
 }
