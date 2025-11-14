@@ -1,3 +1,4 @@
+package org.example
 class Materia(val id: Int, val nombre: String) {
     private val alumnosInscriptos = mutableListOf<Alumno>()
 

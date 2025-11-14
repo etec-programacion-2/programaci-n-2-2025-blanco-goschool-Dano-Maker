@@ -1,3 +1,4 @@
+package org.example
 class Evaluaciones(val descripcion: String, val nota: Double) {
     init {
         if (nota < 0.0 || nota > 10.0) {

@@ -1,8 +1,5 @@
 package org.example
-import Evaluaciones
-import SistemaGestionEscolar
-import Alumno
-import Materia
+
 import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Scene

@@ -1,21 +1,26 @@
-class Alumno(val nombre: String, val apellido: String, val id: Int) {
-    private val evaluaciones = mutableListOf<Evaluaciones>()
+package org.example
 
-    init {
-        if (id <= 0) {
-            throw IllegalArgumentException("El ID es incorrecto, vuelva a intentarlo")
-        }
-        if (nombre.isEmpty() || apellido.isEmpty()) {
-            throw IllegalArgumentException("El nombre o apellido no pueden estar vacíos")
-        }
-    }
+/**
+ * Clase Alumno que hereda de Persona e implementa Evaluable.
+ * Demuestra Herencia y Polimorfismo.
+ */
+class Alumno(
+    nombre: String,
+    apellido: String,
+    id: Int
+) : Persona(nombre, apellido, id), Evaluable {
+
+    private val evaluaciones = mutableListOf<Evaluaciones>()
 
     fun agregarEvaluacion(evaluacion: Evaluaciones) {
         evaluaciones.add(evaluacion)
-        println("✓ Evaluación agregada a $nombre $apellido: ${evaluacion.descripcion}")
+        println("✓ Evaluación agregada a ${obtenerNombreCompleto()}: ${evaluacion.descripcion}")
     }
 
-    fun calcularPromedio(): Double {
+    /**
+     * Implementación de la interface Evaluable (polimorfismo)
+     */
+    override fun calcularPromedio(): Double {
         return if (evaluaciones.isEmpty()) {
             0.0
         } else {
@@ -23,16 +28,22 @@ class Alumno(val nombre: String, val apellido: String, val id: Int) {
         }
     }
 
+    /**
+     * Implementación de la interface Evaluable (polimorfismo)
+     */
+    override fun cantidadEvaluaciones(): Int = evaluaciones.size
+
     fun obtenerEvaluaciones(): List<Evaluaciones> {
         return evaluaciones.toList()
     }
 
-    fun cantidadEvaluaciones(): Int = evaluaciones.size
-
-    fun mostrarInformacion() {
+    /**
+     * Implementación del método abstracto de Persona (polimorfismo por herencia)
+     */
+    override fun mostrarInformacion() {
         println("\n=== INFORMACIÓN DEL ALUMNO ===")
         println("ID: $id")
-        println("Nombre: $nombre $apellido")
+        println("Nombre: ${obtenerNombreCompleto()}")
         println("Cantidad de evaluaciones: ${cantidadEvaluaciones()}")
         println("Promedio: ${String.format("%.2f", calcularPromedio())}")
 
@@ -46,7 +57,10 @@ class Alumno(val nombre: String, val apellido: String, val id: Int) {
         }
     }
 
+    /**
+     * Sobreescritura del método de Persona (polimorfismo)
+     */
     override fun toString(): String {
-        return "$nombre $apellido (ID: $id) - Promedio: ${String.format("%.2f", calcularPromedio())}"
+        return "${obtenerNombreCompleto()} (ID: $id) - Promedio: ${String.format("%.2f", calcularPromedio())}"
     }
 }
