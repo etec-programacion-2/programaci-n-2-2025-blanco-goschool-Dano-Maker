@@ -29,17 +29,13 @@ class App : Application() {
         val botonProfesor = Button("Entrar como profesor").apply {
             style = "-fx-font-family: 'Times New Roman'; -fx-font-size: 13px;"
             prefWidth = 200.0
-            setOnAction {
-                mostrarLoginProfesor(stage)
-            }
+            setOnAction { mostrarLoginProfesor(stage) }
         }
 
         val botonEstudiante = Button("Entrar como estudiante").apply {
             style = "-fx-font-family: 'Times New Roman'; -fx-font-size: 13px;"
             prefWidth = 200.0
-            setOnAction {
-                println("Acceso como estudiante...")
-            }
+            setOnAction { println("Acceso como estudiante...") }
         }
 
         val root = VBox().apply {
@@ -62,10 +58,7 @@ class App : Application() {
     }
 }
 
-/**
- * Función main con MENOS DE 10 LÍNEAS (cumple requisito)
- * Toda la lógica de inicialización se delegó a InicializadorSistema
- */
+// Delega la inicialización del sistema para mantener main simple
 fun main(args: Array<String>) {
     InicializadorSistema.inicializar(App.sistema)
     Application.launch(App::class.java, *args)
