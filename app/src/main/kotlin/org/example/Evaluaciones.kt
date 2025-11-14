@@ -1,4 +1,5 @@
 package org.example
+
 class Evaluaciones(val descripcion: String, val nota: Double) {
     init {
         if (nota < 0.0 || nota > 10.0) {
@@ -9,7 +10,5 @@ class Evaluaciones(val descripcion: String, val nota: Double) {
         }
     }
 
-    override fun toString(): String {
-        return "$descripcion: $nota"
-    }
+    override fun toString(): String = "$descripcion: $nota"
 }

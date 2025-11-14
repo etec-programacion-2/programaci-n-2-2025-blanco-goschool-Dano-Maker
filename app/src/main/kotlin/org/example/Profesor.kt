@@ -1,9 +1,5 @@
 package org.example
 
-/**
- * Clase Profesor que hereda de Persona.
- * Demuestra Herencia - otra implementación de Persona.
- */
 class Profesor(
     nombre: String,
     apellido: String,
@@ -13,6 +9,7 @@ class Profesor(
 
     private val materiasAsignadas = mutableListOf<Materia>()
 
+    // Asigna una materia al profesor si no la tiene ya asignada
     fun asignarMateria(materia: Materia) {
         if (!materiasAsignadas.contains(materia)) {
             materiasAsignadas.add(materia)
@@ -20,13 +17,8 @@ class Profesor(
         }
     }
 
-    fun obtenerMaterias(): List<Materia> {
-        return materiasAsignadas.toList()
-    }
+    fun obtenerMaterias(): List<Materia> = materiasAsignadas.toList()
 
-    /**
-     * Implementación del método abstracto de Persona (polimorfismo)
-     */
     override fun mostrarInformacion() {
         println("\n=== INFORMACIÓN DEL PROFESOR ===")
         println("ID: $id")
@@ -42,12 +34,7 @@ class Profesor(
         }
     }
 
-    /**
-     * Sobreescritura del método de Persona (polimorfismo)
-     */
-    override fun obtenerNombreCompleto(): String {
-        return "Prof. ${super.obtenerNombreCompleto()}"
-    }
+    override fun obtenerNombreCompleto(): String = "Prof. ${super.obtenerNombreCompleto()}"
 
     override fun toString(): String {
         return "${obtenerNombreCompleto()} - $especialidad (${materiasAsignadas.size} materias)"

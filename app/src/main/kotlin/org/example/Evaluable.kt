@@ -1,24 +1,8 @@
 package org.example
 
-/**
- * Interface que define el comportamiento de entidades evaluables.
- * Implementa el principio de Polimorfismo mediante interfaces.
- */
+// Define el comportamiento de entidades que pueden ser evaluadas
 interface Evaluable {
-    /**
-     * Calcula el promedio de evaluaciones
-     */
     fun calcularPromedio(): Double
-
-    /**
-     * Obtiene la cantidad de evaluaciones
-     */
     fun cantidadEvaluaciones(): Int
-
-    /**
-     * Verifica si la entidad tiene evaluaciones
-     */
-    fun tieneEvaluaciones(): Boolean {
-        return cantidadEvaluaciones() > 0
-    }
+    fun tieneEvaluaciones(): Boolean = cantidadEvaluaciones() > 0
 }

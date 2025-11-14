@@ -1,4 +1,5 @@
 package org.example
+
 class Materia(val id: Int, val nombre: String) {
     private val alumnosInscriptos = mutableListOf<Alumno>()
 
@@ -6,8 +7,5 @@ class Materia(val id: Int, val nombre: String) {
         alumnosInscriptos.add(alumno)
     }
 
-    fun obtenerAlumnosInscriptos(): List<Alumno> {
-        return alumnosInscriptos.toList()
-    }
-
+    fun obtenerAlumnosInscriptos(): List<Alumno> = alumnosInscriptos.toList()
 }
